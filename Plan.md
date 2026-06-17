@@ -194,16 +194,16 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
 
 ### 1.3 Meta Developer — WhatsApp Business API
 
-- [ ] **1.3.1** Ir a https://developers.facebook.com/ y crear cuenta de desarrollador
-- [ ] **1.3.2** Crear una nueva App (tipo: Business)
-- [ ] **1.3.3** Agregar producto "WhatsApp" a la App
-- [ ] **1.3.4** En la configuración de WhatsApp API:
+- [x] **1.3.1** Ir a https://developers.facebook.com/ y crear cuenta de desarrollador
+- [x] **1.3.2** Crear una nueva App (tipo: Business)
+- [x] **1.3.3** Agregar producto "WhatsApp" a la App
+- [x] **1.3.4** En la configuración de WhatsApp API:
   - Anotar el `Phone Number ID`
   - Anotar el `WhatsApp Business Account ID` (WABA ID)
   - Generar y copiar el `Access Token` permanente
-- [ ] **1.3.5** Definir el `Verify Token` personalizado para el webhook (ej: `alebrijes_verify_2024`)
-- [ ] **1.3.6** Anotar todas las credenciales en el `.env` local (NUNCA subir `.env` a GitHub)
-- [ ] **1.3.7** Configurar webhook URL apuntando a `https://tu-app.vercel.app/api/webhook` (se completa después del deploy)
+- [x] **1.3.5** Definir el `Verify Token` personalizado para el webhook (ej: `alebrijes_verify_2024`)
+- [x] **1.3.6** Anotar todas las credenciales en el `.env` local (NUNCA subir `.env` a GitHub)
+- [ ] **1.3.7** Configurar webhook URL apuntando a `https://tu-app.vercel.app/api/webhook` (pendiente: requiere deploy a Vercel)
 
 ### 1.4 Vercel — Deploy inicial
 
