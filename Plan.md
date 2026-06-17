@@ -231,12 +231,12 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
 
 ### 2.2 Webhook de WhatsApp
 
-- [ ] **2.2.1** Crear `api/webhook.js` con handler para Vercel serverless
-- [ ] **2.2.2** Implementar `GET /api/webhook`: verificación del webhook por Meta
+- [x] **2.2.1** Crear `api/webhook.js` con handler para Vercel serverless
+- [x] **2.2.2** Implementar `GET /api/webhook`: verificación del webhook por Meta
   - Recibe `hub.mode=subscribe`, `hub.verify_token`, `hub.challenge`
   - Valida que `hub.verify_token` coincida con `META_VERIFY_TOKEN`
   - Responde con `hub.challenge`
-- [ ] **2.2.3** Implementar `POST /api/webhook`: recepción de mensajes
+- [x] **2.2.3** Implementar `POST /api/webhook`: recepción de mensajes
   - Validar firma HMAC del payload (header `X-Hub-Signature-256`) usando App Secret
   - Extraer número de teléfono del remitente, timestamp, contenido del mensaje
   - Procesar solo mensajes de tipo `text` e `interactive` (ignorar status, read receipts, etc.)
