@@ -91,7 +91,7 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
   .gitignore
   ```
 - [1] **1.1.7** Crear `.gitignore` (node_modules, .env, .vercel)
-- [ ] **1.1.8** Crear `.env.example` con las variables necesarias:
+- [1] **1.1.8** Crear `.env.example` con las variables necesarias:
   ```
   # Supabase
   SUPABASE_URL=https://xxx.supabase.co
@@ -108,13 +108,13 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
   PORT=3000
   APP_URL=https://tu-app.vercel.app
   ```
-- [ ] **1.1.9** Crear `vercel.json` con configuración de serverless functions
+- [1] **1.1.9** Crear `vercel.json` con configuración de serverless functions
 
 ### 1.2 Supabase — Proyecto y base de datos
 
-- [x] **1.2.1** Crear proyecto en Supabase (región: US East o la más cercana)
-- [x] **1.2.2** Copiar URL del proyecto y keys al `.env`
-- [ ] **1.2.3** Crear tabla `contacts`:
+- [1] **1.2.1** Crear proyecto en Supabase (región: US East o la más cercana)
+- [1] **1.2.2** Copiar URL del proyecto y keys al `.env`
+- [1] **1.2.3** Crear tabla `contacts`:
   ```sql
   CREATE TABLE contacts (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -123,7 +123,7 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
     created_at TIMESTAMPTZ DEFAULT now()
   );
   ```
-- [ ] **1.2.4** Crear tabla `conversations`:
+- [1] **1.2.4** Crear tabla `conversations`:
   ```sql
   CREATE TABLE conversations (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -138,7 +138,7 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
     updated_at TIMESTAMPTZ DEFAULT now()
   );
   ```
-- [ ] **1.2.5** Crear tabla `messages`:
+- [1] **1.2.5** Crear tabla `messages`:
   ```sql
   CREATE TABLE messages (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -152,7 +152,7 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
     created_at TIMESTAMPTZ DEFAULT now()
   );
   ```
-- [ ] **1.2.6** Crear tabla `catalog_plans`:
+- [1] **1.2.6** Crear tabla `catalog_plans`:
   ```sql
   CREATE TABLE catalog_plans (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -166,7 +166,7 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
     updated_at TIMESTAMPTZ DEFAULT now()
   );
   ```
-- [ ] **1.2.7** Crear tabla `dashboard_users` (metadata extra para usuarios):
+- [1] **1.2.7** Crear tabla `dashboard_users` (metadata extra para usuarios):
   ```sql
   CREATE TABLE dashboard_users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -175,43 +175,43 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
     created_at TIMESTAMPTZ DEFAULT now()
   );
   ```
-- [ ] **1.2.8** Crear índices:
+- [1] **1.2.8** Crear índices:
   ```sql
   CREATE INDEX idx_messages_conversation ON messages(conversation_id, created_at);
   CREATE INDEX idx_conversations_phone ON conversations(phone);
   CREATE INDEX idx_conversations_status ON conversations(status);
   CREATE INDEX idx_contacts_phone ON contacts(phone);
   ```
-- [ ] **1.2.9** Configurar RLS (Row Level Security) en todas las tablas:
+- [1] **1.2.9** Configurar RLS (Row Level Security) en todas las tablas:
   - `messages`: SELECT/INSERT para usuarios autenticados, INSERT para service_role
   - `conversations`: SELECT/UPDATE para autenticados, INSERT para service_role
   - `contacts`: SELECT para autenticados, INSERT para service_role
   - `catalog_plans`: CRUD completo para autenticados, SELECT público
   - `dashboard_users`: SELECT/INSERT para autenticados
-- [x] **1.2.10** Habilitar Supabase Realtime en las tablas `messages` y `conversations`
-- [x] **1.2.11** Configurar Supabase Auth: habilitar login por email/password
-- [x] **1.2.12** Crear usuario admin en Supabase Auth (email + password)
+- [1] **1.2.10** Habilitar Supabase Realtime en las tablas `messages` y `conversations`
+- [1] **1.2.11** Configurar Supabase Auth: habilitar login por email/password
+- [1] **1.2.12** Crear usuario admin en Supabase Auth (email + password)
 
 ### 1.3 Meta Developer — WhatsApp Business API
 
-- [x] **1.3.1** Ir a https://developers.facebook.com/ y crear cuenta de desarrollador
-- [x] **1.3.2** Crear una nueva App (tipo: Business)
-- [x] **1.3.3** Agregar producto "WhatsApp" a la App
-- [x] **1.3.4** En la configuración de WhatsApp API:
+- [1] **1.3.1** Ir a https://developers.facebook.com/ y crear cuenta de desarrollador
+- [1] **1.3.2** Crear una nueva App (tipo: Business)
+- [1] **1.3.3** Agregar producto "WhatsApp" a la App
+- [1] **1.3.4** En la configuración de WhatsApp API:
   - Anotar el `Phone Number ID`
   - Anotar el `WhatsApp Business Account ID` (WABA ID)
   - Generar y copiar el `Access Token` permanente
-- [x] **1.3.5** Definir el `Verify Token` personalizado para el webhook (ej: `alebrijes_verify_2024`)
-- [x] **1.3.6** Anotar todas las credenciales en el `.env` local (NUNCA subir `.env` a GitHub)
-- [x] **1.3.7** Configurar webhook URL apuntando a `https://alebrijes-chatbot.vercel.app/api/webhook` (suscripción activa en Meta: `active: true`, fields: `messages`)
+- [1] **1.3.5** Definir el `Verify Token` personalizado para el webhook (ej: `alebrijes_verify_2024`)
+- [1] **1.3.6** Anotar todas las credenciales en el `.env` local (NUNCA subir `.env` a GitHub)
+- [1] **1.3.7** Configurar webhook URL apuntando a `https://tu-app.vercel.app/api/webhook` (se completa después del deploy)
 
 ### 1.4 Vercel — Deploy inicial
 
-- [x] **1.4.1** Crear cuenta en Vercel (si no existe)
-- [x] **1.4.2** Conectar repositorio GitHub a Vercel
-- [x] **1.4.3** Configurar variables de entorno en Vercel (Panel → Settings → Environment Variables) con todos los valores del `.env`
-- [x] **1.4.4** Hacer deploy inicial vacío para obtener la URL base
-- [x] **1.4.5** Actualizar la URL del webhook en Meta Developer Console con la URL de Vercel
+- [1] **1.4.1** Crear cuenta en Vercel (si no existe)
+- [1] **1.4.2** Conectar repositorio GitHub a Vercel
+- [1] **1.4.3** Configurar variables de entorno en Vercel (Panel → Settings → Environment Variables) con todos los valores del `.env`
+- [1] **1.4.4** Hacer deploy inicial vacío para obtener la URL base
+- [1] **1.4.5** Actualizar la URL del webhook en Meta Developer Console con la URL de Vercel
 
 ---
 
@@ -219,24 +219,21 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
 
 ### 2.1 Módulos base
 
-- [x] **2.1.1** Crear `src/lib/supabase.js`: cliente de Supabase con service_role key (para backend)
-- [x] **2.1.2** Crear `src/lib/meta-api.js`: funciones para enviar mensajes de WhatsApp vía Meta API
+- [1] **2.1.1** Crear `src/lib/supabase.js`: cliente de Supabase con service_role key (para backend)
+- [1] **2.1.2** Crear `src/lib/meta-api.js`: funciones para enviar mensajes de WhatsApp vía Meta API
   - `sendMessage(phone, text)` — enviar texto
-  - `sendInteractiveButtons(phone, bodyText, buttons, headerText)` — enviar mensaje con botones
-  - `sendInteractiveList(phone, bodyText, buttonLabel, sections, headerText, footerText)` — enviar lista
+  - `sendInteractiveMessage(phone, header, body, buttons)` — enviar mensaje con botones
   - `sendImageMessage(phone, imageUrl, caption)` — enviar imagen
-  - `verifyWebhookSignature(rawBody, signature)` — validar firma del webhook
-  - `extractMessageFromWebhook(body)` — extraer datos del payload
-- [x] **2.1.3** Crear `src/middleware/auth.js`: middleware que valida token JWT de Supabase Auth en rutas protegidas
+- [1] **2.1.3** Crear `src/middleware/auth.js`: middleware que valida token JWT de Supabase Auth en rutas protegidas
 
 ### 2.2 Webhook de WhatsApp
 
-- [x] **2.2.1** Crear `api/webhook.js` con handler para Vercel serverless
-- [x] **2.2.2** Implementar `GET /api/webhook`: verificación del webhook por Meta
+- [1] **2.2.1** Crear `api/webhook.js` con handler para Vercel serverless
+- [1] **2.2.2** Implementar `GET /api/webhook`: verificación del webhook por Meta
   - Recibe `hub.mode=subscribe`, `hub.verify_token`, `hub.challenge`
   - Valida que `hub.verify_token` coincida con `META_VERIFY_TOKEN`
   - Responde con `hub.challenge`
-- [x] **2.2.3** Implementar `POST /api/webhook`: recepción de mensajes
+- [1] **2.2.3** Implementar `POST /api/webhook`: recepción de mensajes
   - Validar firma HMAC del payload (header `X-Hub-Signature-256`) usando App Secret
   - Extraer número de teléfono del remitente, timestamp, contenido del mensaje
   - Procesar solo mensajes de tipo `text` e `interactive` (ignorar status, read receipts, etc.)
@@ -245,7 +242,7 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
 
 ### 2.3 Bot Engine — Motor de reglas
 
-- [ ] **2.3.1** Crear `src/bot/engine.js` con la lógica principal:
+- [1] **2.3.1** Crear `src/bot/engine.js` con la lógica principal:
   ```
   function processMessage(phone, messageText):
     1. Buscar o crear contacto en tabla contacts
@@ -257,7 +254,7 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
     7. Actualizar current_flow, current_step, flow_data en conversations
     8. Enviar mensaje outbound vía Meta API
   ```
-- [ ] **2.3.2** Implementar detección de flujo:
+- [1] **2.3.2** Implementar detección de flujo:
   - Si `current_flow` es null → mostrar Menú Principal
   - Si el usuario envía "0" o "menú" → reiniciar a Menú Principal
   - Si el usuario envía un número → navegar según la opción seleccionada en el flujo actual
@@ -265,7 +262,7 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
 
 ### 2.4 Flujos del Bot (archivos JSON)
 
-- [ ] **2.4.1** Crear `src/bot/flows/menu.json` — Menú Principal:
+- [1] **2.4.1** Crear `src/bot/flows/menu.json` — Menú Principal:
   ```
   Flujo: menu
   Paso: start
@@ -283,7 +280,7 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
     2 → ir a flujo faq, paso categories
     3 → ir a flujo menu, paso human_takeover
   ```
-- [ ] **2.4.2** Crear `src/bot/flows/catalogo.json` — Catálogo/Planes:
+- [1] **2.4.2** Crear `src/bot/flows/catalogo.json` — Catálogo/Planes:
   ```
   Flujo: catalogo
   Paso: plans_list
@@ -308,7 +305,7 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
     1 → ir a flujo menu, paso human_takeover
     0 → ir a flujo menu, paso start
   ```
-- [ ] **2.4.3** Crear `src/bot/flows/faq.json` — Preguntas Frecuentes:
+- [1] **2.4.3** Crear `src/bot/flows/faq.json` — Preguntas Frecuentes:
   ```
   Flujo: faq
   Paso: categories
@@ -332,18 +329,18 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
     0 → volver al menú principal
     9 → volver a lista de FAQ
   ```
-- [ ] **2.4.4** Crear `src/bot/flows/menu.json` — Takeover humano:
+- [1] **2.4.4** Crear `src/bot/flows/menu.json` — Takeover humano:
   ```
   Flujo: menu
   Paso: human_takeover
   Acción: set bot_active = false en la conversación
   Respuesta: "🔤 Te conecto con una persona del equipo. En un momento te responderán."
   ```
-- [ ] **2.4.5** Implementar carga dinámica de planes desde `catalog_plans` en el paso `plans_list` del motor
+- [1] **2.4.5** Implementar carga dinámica de planes desde `catalog_plans` en el paso `plans_list` del motor
 
 ### 2.5 Módulo de envío de mensajes (sender)
 
-- [ ] **2.5.1** Crear `src/bot/sender.js`: wrapper que:
+- [1] **2.5.1** Crear `src/bot/sender.js`: wrapper que:
   - Llama a `meta-api.js` para enviar el mensaje
   - Guarda el mensaje outbound en tabla `messages`
   - Maneja errores de la API de Meta (rate limits, números inválidos, etc.)
@@ -354,24 +351,24 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
 
 ### 3.1 Autenticación
 
-- [ ] **3.1.1** Crear `api/auth/login.js`:
+- [1] **3.1.1** Crear `api/auth/login.js`:
   - `POST /api/auth/login`
   - Recibe `{ email, password }`
   - Usa Supabase Auth `signInWithPassword`
   - Retorna `{ token, user }`
-- [ ] **3.1.2** Crear `api/auth/me.js`:
+- [1] **3.1.2** Crear `api/auth/me.js`:
   - `GET /api/auth/me`
   - Valida token JWT del header Authorization
   - Retorna datos del usuario actual
 
 ### 3.2 Conversaciones
 
-- [ ] **3.2.1** Crear `api/conversations/index.js`:
+- [1] **3.2.1** Crear `api/conversations/index.js`:
   - `GET /api/conversations`
   - Lista conversaciones con datos del contacto
   - Parámetros de query: `status` (active/closed), `search` (por nombre/teléfono), `page`, `limit`
   - Retorna: array de conversaciones con último mensaje y datos del contacto
-- [ ] **3.2.2** Crear `api/conversations/[id]/toggle-bot.js`:
+- [1] **3.2.2** Crear `api/conversations/[id]/toggle-bot.js`:
   - `POST /api/conversations/:id/toggle-bot`
   - Body: `{ bot_active: true/false }`
   - Actualiza campo `bot_active` en la conversación
