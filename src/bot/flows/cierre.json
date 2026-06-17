@@ -1,0 +1,22 @@
+{
+  "flow_key": "cierre",
+  "name": "Cierre y Pase de Prueba",
+  "description": "Mensaje final con envio de imagen del Pase y requisitos. Comun para las 3 categorias.",
+  "steps": {
+    "success": {
+      "message": "¡Registro exitoso! 🎉\n\nA continuacion te envio la imagen de tu *Pase de Semana de Prueba Sin Costo*.",
+      "send_image": "pase",
+      "auto_advance": true,
+      "next_flow": "cierre",
+      "next_step": "requirements"
+    },
+    "requirements": {
+      "message": "🚨 *REQUISITOS OBLIGATORIOS PARA TU PRIMER DIA:*\nPara que te hagamos valido este pase, el dia de tu entrenamiento debes presentarte puntualmente en el Centro Recreativo Pascual Boing con:\n\n1️⃣ Esta imagen de tu pase de prueba (en tu celular o impresa).\n2️⃣ Ropa completamente blanca.\n3️⃣ Zapatos de futbol (tacos).\n4️⃣ Tu propia hidratacion.\n\n📲 *SIGUIENTE PASO (MUY IMPORTANTE):*\nPara confirmar tu asistencia, resolver cualquier duda final y recibir las instrucciones exactas de acceso a la cancha, comunicate ahora mismo con nuestra coordinadora enviandoles un mensaje de WhatsApp:\n\n{{contact_info}}\n\n¡Te esperamos en la cancha para demostrar tu talento! ⚽",
+      "dynamic": "contact_info",
+      "options": {
+        "0": { "next_flow": "menu", "next_step": "start" },
+        "menu": { "next_flow": "menu", "next_step": "start" }
+      }
+    }
+  }
+}

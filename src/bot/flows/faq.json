@@ -1,0 +1,65 @@
+{
+  "flow_key": "faq",
+  "name": "Preguntas Frecuentes",
+  "description": "Lista de preguntas frecuentes con respuestas predefinidas.",
+  "steps": {
+    "categories": {
+      "message": "❓ *Preguntas Frecuentes*\n\n1️⃣ Horarios y ubicacion\n2️⃣ Requisitos para inscribirte\n3️⃣ Edades y categorias\n4️⃣ Metodos de pago\n5️⃣ Que necesitas traer\n6️⃣ Hablar con una persona\n\n_Responde con el numero de tu pregunta._\n_Escribe 0 para volver al menu principal._",
+      "options": {
+        "1": { "next_flow": "faq", "next_step": "horarios" },
+        "2": { "next_flow": "faq", "next_step": "requisitos" },
+        "3": { "next_flow": "faq", "next_step": "edades" },
+        "4": { "next_flow": "faq", "next_step": "pagos" },
+        "5": { "next_flow": "faq", "next_step": "que_traer" },
+        "6": { "next_flow": "menu", "next_step": "human_takeover" },
+        "0": { "next_flow": "menu", "next_step": "start" },
+        "menu": { "next_flow": "menu", "next_step": "start" }
+      }
+    },
+    "horarios": {
+      "message": "🕐 *Horarios y ubicacion*\n\n📍 Estamos en el *Centro Recreativo Pascual Boing*, Teotihuacan, Estado de Mexico.\n\n🗓️ Horarios de entrenamiento segun tu categoria:\n• *Escuela - Turno Matutino:* Lunes a Viernes de 08:00 a 10:30 hrs.\n• *Escuela - Turno Vespertino:* Martes, Miercoles y Jueves de 16:00 a 18:30 hrs.\n• *Liga TDP / Piloto:* Por definir en el Filtro Final Nacional.\n\n📲 Ubicacion: https://maps.app.goo.gl/nXnXtADvzofWVusk9",
+      "options": {
+        "6": { "next_flow": "menu", "next_step": "human_takeover" },
+        "0": { "next_flow": "menu", "next_step": "start" },
+        "9": { "next_flow": "faq", "next_step": "categories" },
+        "menu": { "next_flow": "menu", "next_step": "start" }
+      }
+    },
+    "requisitos": {
+      "message": "📝 *Requisitos para inscribirte*\n\nPara tu *Pase de Semana de Prueba* solo necesitas presentarte el dia del entrenamiento con:\n\n✅ Imagen del pase (en tu celular o impresa)\n✅ Ropa completamente blanca\n✅ Zapatos de futbol (tacos)\n✅ Tu propia hidratacion\n\nPara la inscripcion formal, posteriormente se te pedirian:\n✅ Acta de nacimiento (copia)\n✅ CURP del jugador y del tutor\n✅ Comprobante de domicilio\n✅ Certificado medico reciente",
+      "options": {
+        "1": { "next_flow": "menu", "next_step": "human_takeover" },
+        "9": { "next_flow": "faq", "next_step": "categories" },
+        "0": { "next_flow": "menu", "next_step": "start" },
+        "menu": { "next_flow": "menu", "next_step": "start" }
+      }
+    },
+    "edades": {
+      "message": "👦 *Edades y categorias*\n\nContamos con 3 categorias segun tu edad:\n\n🏫 *Escuela (Centro de Iniciacion Deportiva):* Ninos de 6 a 11 anos\n⚽ *Tercera Division Profesional (Liga TDP):* Jovenes nacidos entre 2005 y 2012\n🏆 *Equipo Piloto (Liga de Expansion MX):* Jovenes nacidos entre 2002 y 2004\n\nLos grupos se asignan segun la edad y nivel del jugador.",
+      "options": {
+        "1": { "next_flow": "menu", "next_step": "human_takeover" },
+        "9": { "next_flow": "faq", "next_step": "categories" },
+        "0": { "next_flow": "menu", "next_step": "start" },
+        "menu": { "next_flow": "menu", "next_step": "start" }
+      }
+    },
+    "pagos": {
+      "message": "💳 *Metodos de pago*\n\n*Escuela:*\n✅ Costo de Inscripcion: $0\n✅ Mensualidad fija: $550 MXN (Sin letras chiquitas)\n\n*Liga TDP / Piloto:*\nEl Filtro Final Nacional incluye seguro, uniforme, zapatera, hidratacion, fisioterapia y mas sin costo inicial.\n\nAceptamos:\n• Efectivo\n• Transferencia bancaria\n• Deposito en OXXO\n\nPara mas detalle de costos, contactanos directamente.",
+      "options": {
+        "1": { "next_flow": "menu", "next_step": "human_takeover" },
+        "9": { "next_flow": "faq", "next_step": "categories" },
+        "0": { "next_flow": "menu", "next_step": "start" },
+        "menu": { "next_flow": "menu", "next_step": "start" }
+      }
+    },
+    "que_traer": {
+      "message": "🎽 *Que necesitas traer*\n\nPara los entrenamientos:\n• Ropa deportiva comoda (preferentemente blanca para tu pase)\n• Zapatos de futbol (tacos)\n• Tu propia hidratacion\n• Positivo y muchas ganas de aprender ⚽\n\nEl club proporciona:\n• Balones para entrenar\n• Petos para juegos\n• Personal tecnico calificado",
+      "options": {
+        "1": { "next_flow": "menu", "next_step": "human_takeover" },
+        "9": { "next_flow": "faq", "next_step": "categories" },
+        "0": { "next_flow": "menu", "next_step": "start" },
+        "menu": { "next_flow": "menu", "next_step": "start" }
+      }
+    }
+  }
+}
