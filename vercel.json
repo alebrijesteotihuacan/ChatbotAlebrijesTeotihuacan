@@ -16,12 +16,11 @@
       "dest": "/api/$1"
     },
     {
-      "src": "/(.*\\.(html|css|js|svg|png|jpg|jpeg|ico))",
+      "src": "/(.*)",
       "dest": "/public/$1"
-    },
-    {
-      "src": "/",
-      "dest": "/public/index.html"
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
