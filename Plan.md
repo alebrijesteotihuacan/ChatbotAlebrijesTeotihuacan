@@ -25,20 +25,20 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
 
 ### 1.1 Repositorio y proyecto
 
-- [ ] **1.1.1** Crear repositorio en GitHub: `alebrijes-teotihuacan-chatbot`
-- [ ] **1.1.2** Clonar repositorio localmente
-- [ ] **1.1.3** Inicializar proyecto Node.js: `npm init -y`
-- [ ] **1.1.4** Instalar dependencias base:
+- [1] **1.1.1** Crear repositorio en GitHub: `alebrijes-teotihuacan-chatbot`
+- [1] **1.1.2** Clonar repositorio localmente
+- [1] **1.1.3** Inicializar proyecto Node.js: `npm init -y`
+- [1] **1.1.4** Instalar dependencias base:
   ```
   npm install express cors dotenvhelmet
   npm install @supabase/supabase-js
   npm install axios
   ```
-- [ ] **1.1.5** Instalar dependencias de desarrollo:
+- [1] **1.1.5** Instalar dependencias de desarrollo:
   ```
   npm install -D nodemon vercel
   ```
-- [ ] **1.1.6** Crear estructura de carpetas:
+- [1] **1.1.6** Crear estructura de carpetas:
   ```
   /api/
     /webhook.js
@@ -90,7 +90,7 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
   .env.example
   .gitignore
   ```
-- [ ] **1.1.7** Crear `.gitignore` (node_modules, .env, .vercel)
+- [1] **1.1.7** Crear `.gitignore` (node_modules, .env, .vercel)
 - [ ] **1.1.8** Crear `.env.example` con las variables necesarias:
   ```
   # Supabase
@@ -112,8 +112,8 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
 
 ### 1.2 Supabase — Proyecto y base de datos
 
-- [ ] **1.2.1** Crear proyecto en Supabase (región: US East o la más cercana)
-- [ ] **1.2.2** Copiar URL del proyecto y keys al `.env`
+- [x] **1.2.1** Crear proyecto en Supabase (región: US East o la más cercana)
+- [x] **1.2.2** Copiar URL del proyecto y keys al `.env`
 - [ ] **1.2.3** Crear tabla `contacts`:
   ```sql
   CREATE TABLE contacts (
@@ -188,9 +188,9 @@ Chatbot de WhatsApp para la Academia de Fútbol **Alebrijes de Oaxaca Teotihuaca
   - `contacts`: SELECT para autenticados, INSERT para service_role
   - `catalog_plans`: CRUD completo para autenticados, SELECT público
   - `dashboard_users`: SELECT/INSERT para autenticados
-- [ ] **1.2.10** Habilitar Supabase Realtime en las tablas `messages` y `conversations`
-- [ ] **1.2.11** Configurar Supabase Auth: habilitar login por email/password
-- [ ] **1.2.12** Crear usuario admin en Supabase Auth (email + password)
+- [x] **1.2.10** Habilitar Supabase Realtime en las tablas `messages` y `conversations`
+- [x] **1.2.11** Configurar Supabase Auth: habilitar login por email/password
+- [x] **1.2.12** Crear usuario admin en Supabase Auth (email + password)
 
 ### 1.3 Meta Developer — WhatsApp Business API
 
